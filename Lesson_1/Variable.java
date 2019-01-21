@@ -1,11 +1,13 @@
-/*
+﻿/*
 Создайте класс Variable с методом main
 Объявите в методе переменные всех существующих в Java примитивных типов данных. Каждой переменной присвойте значение
 В качестве значений используйте информацию о своем компьютере: количество ядер, частота процессора и тд.
 Выведите все значения переменных на консоль
 */
+
 public class Variable {	
     public static void main(String[] args) {
+
         byte motherBoard = 1;
         short processorsCores = 8;
         int memoryRAM = 4;
@@ -14,6 +16,7 @@ public class Variable {
         double capacitySSD = 256.0d;
         char driveLetter = 'C';
         boolean workStatus = true;
+
         System.out.println("motherboard: " + motherBoard);
         System.out.println("processor's cores: " + processorsCores);
         System.out.println("RAM memory: " + memoryRAM);
