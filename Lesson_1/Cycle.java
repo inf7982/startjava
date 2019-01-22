@@ -19,15 +19,15 @@ public class Cycle {
             i -= 2;
         }
 
-        int i2 = 10;
+        i = 10;
         int sum = 0;
         do {
-            if (i2 % 2 != 0) {
-                sum += i2;
+            if (i % 2 != 0) {
+                sum += i;
             }
-            i2++;
+            i++;
         }
-        while (i2 < 20);
+        while (i < 20);
         System.out.println(sum);
     }
 }
