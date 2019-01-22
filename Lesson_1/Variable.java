@@ -1,4 +1,4 @@
-﻿/*
+/*
 Создайте класс Variable с методом main
 Объявите в методе переменные всех существующих в Java примитивных типов данных. Каждой переменной присвойте значение
 В качестве значений используйте информацию о своем компьютере: количество ядер, частота процессора и тд.
@@ -13,7 +13,7 @@ public class Variable {
         int memoryRAM = 4;
         long memoryGPU = 8;
         float frequencyCPU = 3.4f;
-        double capacitySSD = 256.0d;
+        double capacitySSD = 256.0;
         char driveLetter = 'C';
         boolean workStatus = true;
 
