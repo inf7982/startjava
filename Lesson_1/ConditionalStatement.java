@@ -10,7 +10,7 @@ public class ConditionalStatement {
 
         int age = 33;
         boolean male = true;
-        double height = 1.85;
+        double height = 1.84;
         char nameBeginsLetter = 'S';
 
         if (age > 20) {
