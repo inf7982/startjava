@@ -8,13 +8,13 @@
 public class ConditionalStatement {
     public static void main(String[] args) {
 
-        int yourAge = 100;
-        boolean youAreMale = false;
-        double yourHeight = 1.2;
-        char yourNameBeginsWithTheLetter = 'S';
+        int age = 100;
+        boolean sex = false;
+        double height = 1.2;
+        char nameBeginsLetter = 'S';
 
         if (yourAge > 20) {
-            System.out.println("Your age is "+yourAge+" years old");
+            System.out.println("Your age is " + age + " years old");
         }
 
         if (youAreMale) {
@@ -26,9 +26,9 @@ public class ConditionalStatement {
         }
 
         if (yourHeight < 1.8) {
-            System.out.println("Your height is less than "+yourHeight+"m");
+            System.out.println("Your height is less than " + yourHeight + "m");
         } else {
-            System.out.println("Your height is over than "+yourHeight+"m");
+            System.out.println("Your height is over than " + yourHeight + "m");
         }
 
         if (yourNameBeginsWithTheLetter == 'M') {
@@ -36,8 +36,7 @@ public class ConditionalStatement {
         } else if (yourNameBeginsWithTheLetter == 'I') {
             System.out.println("Your name begins with the letter I");
         } else {
-            System.out.println("Your name begins with the letter "+yourNameBeginsWithTheLetter);
+            System.out.println("Your name begins with the letter " + yourNameBeginsWithTheLetter);
         }
-
     }
 }
