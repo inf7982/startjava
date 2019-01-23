@@ -9,15 +9,20 @@
 public class Game {
 
     public static void main(String[] args) {
-        int randomNum = 5;
+        int randomNum = 352;
         int userNum = 6;
 
-        if (randomNum > userNum) {
-            System.out.println("Введенное вами число меньше того, что загадал компьютер");
-        } else if (randomNum < userNum) {
-            System.out.println("Введенное вами число больше того, что загадал компьютер");
-        } else {
-            System.out.println("Вы угадали!");
+        do {
+            if (userNum > randomNum) {
+                System.out.println("Введенное вами число " + userNum + " больше того, что загадал компьютер");
+                userNum--;
+            } else {
+                System.out.println("Введенное вами число " + userNum + " меньше того, что загадал компьютер");
+                userNum++;
+            }
+            userNum = (randomNum - userNum) / 2 + userNum;
         }
+        while (randomNum != userNum);
+        System.out.println("Вы угадали число " + userNum);
     }
 }
