@@ -20,13 +20,13 @@ public class Calculator {
         } else if (mathOperation == '/') {
             System.out.println(num1 / num2);
         } else if (mathOperation == '^') {
-            System.out.println(exponentCalculation(num1, num2));
+            System.out.println(raisePower(num1, num2));
         } else if (mathOperation == '%') {
             System.out.println(num1 % num2);
         }
     }
 
-    static int exponentCalculation(int a, int b) {
+    static int raisePower(int a, int b) {
         int result = 1;
         for (int i = 1; i <= b; i++) {
             result *= a;
