@@ -7,7 +7,7 @@
 public class Calculator {
 
     public static void main(String[] args) {
-        int num1 = 6;
+        int num1 = 8;
         int num2 = 2;
         char mathOperation = '^';
 
