@@ -3,11 +3,12 @@
 - напишите в нем поля: пол, кличка, вес, возраст, окрас
 - напишите в нем методы: идти, сидеть, бежать, выть, охотиться
  */
+
 public class Wolf {
     String gender;
     String name;
     double weight;
-    byte age;
+    int age;
     String color;
 
     void go() {
