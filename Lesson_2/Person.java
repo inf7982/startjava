@@ -8,8 +8,8 @@
 public class Person {
     boolean male = true;
     String name = "Serj";
-    float height = 184.0f;
-    float weight = 94.5f;
+    double height = 184.2;
+    double weight = 94.5;
     int age = 33;
 
     void go() {
