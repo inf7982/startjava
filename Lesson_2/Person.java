@@ -12,23 +12,23 @@ public class Person {
     float weight = 94.5f;
     int age = 33;
 
-    go() {
+    void go() {
 
     }
 
-    sit() {
+    void sit() {
 
     }
 
-    run() {
+    void run() {
 
     }
 
-    talk() {
+    void talk() {
 
     }
 
-    learnJava() {
+    void learnJava() {
 
     }
 }
