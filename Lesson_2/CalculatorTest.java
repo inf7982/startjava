@@ -13,17 +13,16 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+
         System.out.print("Введите первое число: ");
-        Scanner scanNum1 = new Scanner(System.in);
-        int num1 = scanNum1.nextInt();
+        int num1 = scan.nextInt();
 
         System.out.print("Введите знак математической операции: ");
-        Scanner scanMathOperation = new Scanner(System.in);
-        String mathOperation = scanMathOperation.next();
+        String mathOperation = scan.next();
 
         System.out.print("Введите второе число: ");
-        Scanner scanNum2 = new Scanner(System.in);
-        int num2 = scanNum2.nextInt();
+        int num2 = scan.nextInt();
 
         Calculator calculator = new Calculator();
         calculator.calc(num1, mathOperation, num2);
