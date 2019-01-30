@@ -13,18 +13,28 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String args[]) {
-        Scanner scan = new Scanner(System.in);
+        String playerAnswer;
+        do {
+            Scanner scan = new Scanner(System.in);
 
-        System.out.print("Введите первое число: ");
-        int num1 = scan.nextInt();
+            System.out.print("Введите первое число: ");
+            int num1 = scan.nextInt();
 
-        System.out.print("Введите знак математической операции: ");
-        String mathOperation = scan.next();
+            System.out.print("Введите знак математической операции: ");
+            String mathOperation = scan.next();
 
-        System.out.print("Введите второе число: ");
-        int num2 = scan.nextInt();
+            System.out.print("Введите второе число: ");
+            int num2 = scan.nextInt();
 
-        Calculator calculator = new Calculator();
-        calculator.calc(num1, mathOperation, num2);
+            Calculator calculator = new Calculator();
+            calculator.calc(num1, mathOperation, num2);
+
+            do {
+                System.out.print("Хотите продолжить? [да/нет]: ");
+                playerAnswer = scan.next();
+            }
+            while (!playerAnswer.equals("да")&!playerAnswer.equals("нет"));
+        }
+        while (!playerAnswer.equals("нет"));
     }
 }
