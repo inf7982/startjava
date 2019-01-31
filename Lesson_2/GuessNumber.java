@@ -1,16 +1,33 @@
+import java.util.Scanner;
+
 public class GuessNumber {
-    public void method(String playerName, int randomNumber, int userNumber) {
+    public GuessNumber(String playerName) {
+        String playerAnswer;
         do {
-            if (userNumber > randomNumber) {
-                System.out.println(playerName + ", введенное вами число " + userNumber + " больше того, что загадал компьютер");
-                userNumber--;
-            } else if (userNumber < randomNumber){
-                System.out.println(playerName + ", введенное вами число " + userNumber + " меньше того, что загадал компьютер");
-                userNumber++;
+            int randomNumber = (int) (Math.random() * 101);
+            Scanner scan = new Scanner(System.in);
+
+            System.out.print("Введите цифру: ");
+            Player playerNumber = new Player(scan.nextInt());
+
+            do {
+                if (playerNumber.getNumber() > randomNumber) {
+                    System.out.print(playerName + ", введенное вами число " + playerNumber.getNumber() + " больше того, что загадал компьютер, попробуйте еще раз: ");
+                } else if (playerNumber.getNumber() < randomNumber) {
+                    System.out.print(playerName + ", введенное вами число " + playerNumber.getNumber() + " меньше того, что загадал компьютер, попробуйте еще раз: ");
+                }
+                playerNumber.setNumber(scan.nextInt());
             }
-            userNumber = (randomNumber - userNumber) / 2 + userNumber;
+            while (randomNumber != playerNumber.getNumber());
+
+            System.out.println(playerName + ", Вы угадали число " + playerNumber.getNumber());
+
+            do {
+                System.out.print("Хотите продолжить? [да/нет]: ");
+                playerAnswer = scan.next();
+            }
+            while (!playerAnswer.equals("да") && !playerAnswer.equals("нет"));
         }
-        while (randomNumber != userNumber);
-        System.out.println(playerName + ", Вы угадали число " + userNumber);
+        while (!playerAnswer.equals("нет"));
     }
 }
