@@ -7,12 +7,55 @@
  */
 
 public class Jaeger {
-    String name;
-    int launched;
-    String origin;
-    double height;
-    double weight;
-    int speed;
-    int strength;
-    int armor;
+    private String name;
+    private int launched;
+    private String origin;
+    private double height;
+    private double weight;
+    private int speed;
+    private int strength;
+    private int armor;
+
+    public Jaeger(String name, int launched, String origin, double height, double weight, int speed, int strength, int armor) {
+        this.name = name;
+        this.launched = launched;
+        this.origin = origin;
+        this.height = height;
+        this.weight = weight;
+        this.speed = speed;
+        this.strength = strength;
+        this.armor = armor;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLaunched() {
+        return launched;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
 }
