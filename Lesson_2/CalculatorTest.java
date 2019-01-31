@@ -14,9 +14,9 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String args[]) {
         String playerAnswer;
+        Scanner scan = new Scanner(System.in);
+        
         do {
-            Scanner scan = new Scanner(System.in);
-
             System.out.print("Введите первое число: ");
             int num1 = scan.nextInt();
 
@@ -33,7 +33,7 @@ public class CalculatorTest {
                 System.out.print("Хотите продолжить? [да/нет]: ");
                 playerAnswer = scan.next();
             }
-            while (!playerAnswer.equals("да")&!playerAnswer.equals("нет"));
+            while (!playerAnswer.equals("да") && !playerAnswer.equals("нет"));
         }
         while (!playerAnswer.equals("нет"));
     }
