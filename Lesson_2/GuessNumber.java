@@ -12,22 +12,30 @@ public class GuessNumber {
     }
 
     public void playGame() {
-        player1.setNumber(-1);
-        player2.setNumber(-1);
-        
-        while (randomNumber != player1.getNumber() && randomNumber != player2.getNumber()) {
-            System.out.print(player1.getName() + ", введите число: ");
-            player1.setNumber(scan.nextInt());
+        negativeNumberAssignment(player1);
+        negativeNumberAssignment(player2);
+
+        do {
+            inputNumber(player1);
             suggestPlayer(player1);
-            
+
             if (player1.getNumber() == randomNumber) {
                 break;
             }
-            
-            System.out.print(player2.getName() + ", введите число: ");
-            player2.setNumber(scan.nextInt());
+
+            inputNumber(player2);
             suggestPlayer(player2);
         }
+        while (randomNumber != player1.getNumber() && randomNumber != player2.getNumber());
+    }
+
+    public void negativeNumberAssignment(Player player) {
+        player.setNumber(-1);
+    }
+
+    public void inputNumber(Player player) {
+        System.out.print(player.getName() + ", введите число: ");
+        player.setNumber(scan.nextInt());
     }
 
     public void suggestPlayer(Player player) {
