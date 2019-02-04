@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class GuessNumber {
-    Player player1;
-    Player player2;
+    private Player player1;
+    private Player player2;
+    private int randomNumber = (int) (Math.random() * 101);
     Scanner scan = new Scanner(System.in);
-    int randomNumber = (int) (Math.random() * 101);
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -12,23 +12,23 @@ public class GuessNumber {
     }
 
     public void playGame() {
+        player1.setNumber(-1);
+        player2.setNumber(-1);
+        
         while (randomNumber != player1.getNumber() && randomNumber != player2.getNumber()) {
-            player1.setNumber(-1);
-            player2.setNumber(-1);
-            System.out.println(randomNumber);
-
+            System.out.print(player1.getName() + ", введите число: ");
+            player1.setNumber(scan.nextInt());
             suggestPlayer(player1);
             if (player1.getNumber() == randomNumber) {
                 break;
             }
+            System.out.print(player2.getName() + ", введите число: ");
+            player2.setNumber(scan.nextInt());
             suggestPlayer(player2);
         }
     }
 
     public void suggestPlayer(Player player) {
-        System.out.print(player.getName() + ", введите число: ");
-        player.setNumber(scan.nextInt());
-
         if (player.getNumber() > randomNumber) {
             System.out.println(player.getName() + ", введенное вами число " + player.getNumber() + " больше того, что загадал компьютер");
         } else if (player.getNumber() < randomNumber) {
