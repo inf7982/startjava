@@ -19,9 +19,11 @@ public class GuessNumber {
             System.out.print(player1.getName() + ", введите число: ");
             player1.setNumber(scan.nextInt());
             suggestPlayer(player1);
+            
             if (player1.getNumber() == randomNumber) {
                 break;
             }
+            
             System.out.print(player2.getName() + ", введите число: ");
             player2.setNumber(scan.nextInt());
             suggestPlayer(player2);
