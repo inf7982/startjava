@@ -1,9 +1,4 @@
-/*
-Создайте класс ConditionalStatement с методом main
-Запишите следующие условия с помощью языка Java
-Используйте переменные и условные операторы
-Выведите все сообщения на консоль
- */
+package com.startjava.lesson_1.conditionalstatement;
 
 public class ConditionalStatement {
 
