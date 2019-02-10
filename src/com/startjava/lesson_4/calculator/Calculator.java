@@ -9,23 +9,32 @@ public class Calculator {
 
     public void calc() {
         String string = mathematicalExpression;
-        string.replaceAll("\\s+","");
-        String[] numbers = string.split("[+|-|*|/|^|%]");
+        String[] numbers = string.split(" ");
         int num1 = Integer.parseInt(numbers[0]);
-        int num2 = Integer.parseInt(numbers[1]);
+        String operation = numbers[1];
+        int num2 = Integer.parseInt(numbers[2]);
 
-        if (string.contains("+")) {
-            System.out.println(num1 + num2);
-        } else if (string.contains("-")) {
-            System.out.println(num1 - num2);
-        } else if (string.contains("*")) {
-            System.out.println(num1 * num2);
-        } else if (string.contains("/")) {
-            System.out.println(num1 / num2);
-        } else if (string.contains("^")) {
-            System.out.println((int) Math.pow(num1, num2));
-        } else if (string.contains("%")) {
-            System.out.println((int) Math.IEEEremainder(num1, num2));
+        System.out.println(operation);
+
+        switch (operation) {
+            case "+":
+                System.out.println(num1 + num2);
+                break;
+            case "-":
+                System.out.println(num1 - num2);
+                break;
+            case "*":
+                System.out.println(num1 * num2);
+                break;
+            case "/":
+                System.out.println(num1 / num2);
+                break;
+            case "^":
+                System.out.println((int) Math.pow(num1, num2));
+                break;
+            case "%":
+                System.out.println((int) Math.IEEEremainder(num1, num2));
+                break;
         }
     }
 }

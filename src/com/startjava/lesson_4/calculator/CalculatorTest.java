@@ -9,14 +9,14 @@ public class CalculatorTest {
 
         do {
             System.out.print("Введите математическое выражение: ");
-            String mathematicalExpression = scan.next();
+            String mathematicalExpression = scan.nextLine();
 
             Calculator calculator = new Calculator(mathematicalExpression);
             calculator.calc();
 
             do {
                 System.out.print("Хотите продолжить? [да/нет]: ");
-                playerAnswer = scan.next();
+                playerAnswer = scan.nextLine();
             }
             while (!playerAnswer.equals("да") && !playerAnswer.equals("нет"));
         }
