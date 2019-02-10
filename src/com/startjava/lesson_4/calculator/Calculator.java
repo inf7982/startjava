@@ -14,8 +14,6 @@ public class Calculator {
         String operation = numbers[1];
         int num2 = Integer.parseInt(numbers[2]);
 
-        System.out.println(operation);
-
         switch (operation) {
             case "+":
                 System.out.println(num1 + num2);
