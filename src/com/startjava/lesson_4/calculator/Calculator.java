@@ -1,18 +1,17 @@
 package com.startjava.lesson_4.calculator;
 
 public class Calculator {
-    private String mathematicalExpression;
+    private String mathExpression;
 
-    public Calculator(String mathematicalExpression) {
-        this.mathematicalExpression = mathematicalExpression;
+    public Calculator(String mathExpression) {
+        this.mathExpression = mathExpression;
     }
 
     public void calc() {
-        String string = mathematicalExpression;
-        String[] numbers = string.split(" ");
-        int num1 = Integer.parseInt(numbers[0]);
-        String operation = numbers[1];
-        int num2 = Integer.parseInt(numbers[2]);
+        String[] expression = mathExpression.split(" ");
+        int num1 = Integer.parseInt(expression[0]);
+        String operation = expression[1];
+        int num2 = Integer.parseInt(expression[2]);
 
         switch (operation) {
             case "+":

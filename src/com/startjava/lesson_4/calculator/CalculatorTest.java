@@ -9,17 +9,15 @@ public class CalculatorTest {
 
         do {
             System.out.print("Введите математическое выражение: ");
-            String mathematicalExpression = scan.nextLine();
+            String mathExpression = scan.nextLine();
 
-            Calculator calculator = new Calculator(mathematicalExpression);
+            Calculator calculator = new Calculator(mathExpression);
             calculator.calc();
 
             do {
                 System.out.print("Хотите продолжить? [да/нет]: ");
                 playerAnswer = scan.nextLine();
-            }
-            while (!playerAnswer.equals("да") && !playerAnswer.equals("нет"));
-        }
-        while (!playerAnswer.equals("нет"));
+            } while (!playerAnswer.equals("да") && !playerAnswer.equals("нет"));
+        } while (!playerAnswer.equals("нет"));
     }
 }
