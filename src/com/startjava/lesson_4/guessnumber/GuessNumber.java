@@ -36,20 +36,23 @@ public class GuessNumber {
             checkAttempts(player2);
 
             if (counter == 9) {
-                arrayOutput(player1);
-                arrayOutput(player2);
                 break;
             }
 
             counter++;
         }
         while (randomNumber != player1.getNumbers()[counter] || randomNumber != player2.getNumbers()[counter]);
+        arrayOutput(player1);
+        arrayOutput(player2);
     }
 
     public void arrayOutput(Player player) {
+        int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
         System.out.print(player.getName());
-        for (int i = 0; i < player.getNumbers().length; i++) {
-            System.out.print(" " + player.getNumbers()[i]);
+        for (int i = 0; i < newArray.length; i++) {
+            if (newArray[i] != 0) {
+                System.out.print(" " + newArray[i]);
+            }
         }
         System.out.println("");
     }
