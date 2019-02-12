@@ -49,6 +49,7 @@ public class GuessNumber {
     public void arrayOutput(Player player) {
         int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
         System.out.print(player.getName());
+        //хотел с помощью Arrays.copyOf копировать разной длины массивы игроков, но так и не понял, как сделать динамическую длину массива, чтобы длина массива увеличивалась по мере наполнения массива.
         for (int i = 0; i < newArray.length; i++) {
             if (newArray[i] != 0) {
                 System.out.print(" " + newArray[i]);
@@ -65,9 +66,9 @@ public class GuessNumber {
 
     public void negativeNumberAssignment(Player player) {
         for (int i = 0; i < player.getNumbers().length; i++) {
-            if (player.getNumbers()[i] == 0) {
-                Arrays.fill(player.getNumbers(), 0, i++, 0);
-                break;
+            if (player.getNumbers()[i] != 0) {
+                int last = i + 1;
+                Arrays.fill(player.getNumbers(), 0, last, 0);
             }
         }
     }
