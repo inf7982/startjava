@@ -8,8 +8,7 @@ public class GuessNumber {
     private Player player2;
     private int randomNumber = (int) (Math.random() * 101);
     private Scanner scan = new Scanner(System.in);
-    private int counter = 0;
-
+    private int attempt = 0;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -17,75 +16,70 @@ public class GuessNumber {
     }
 
     public void playGame() {
-        negativeNumberAssignment(player1);
-        negativeNumberAssignment(player2);
-
         do {
             inputNumber(player1);
             suggestPlayer(player1);
-            if (player1.getNumbers()[counter] == randomNumber) {
+            if (player1.getNumbers()[attempt] == randomNumber) {
                 break;
             }
             checkAttempts(player1);
 
             inputNumber(player2);
             suggestPlayer(player2);
-            if (player2.getNumbers()[counter] == randomNumber) {
+            if (player2.getNumbers()[attempt] == randomNumber) {
                 break;
             }
             checkAttempts(player2);
 
-            if (counter == 9) {
+            if (attempt == 9) {
                 break;
             }
 
-            counter++;
+            attempt++;
         }
-        while (randomNumber != player1.getNumbers()[counter] || randomNumber != player2.getNumbers()[counter]);
-        arrayOutput(player1);
-        arrayOutput(player2);
-    }
+        while (randomNumber != player1.getNumbers()[attempt] || randomNumber != player2.getNumbers()[attempt]);
 
-    public void arrayOutput(Player player) {
-        int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
-        System.out.print(player.getName());
-        //хотел с помощью Arrays.copyOf копировать разной длины массивы игроков, но так и не понял, как сделать динамическую длину массива, чтобы длина массива увеличивалась по мере наполнения массива.
-        for (int i = 0; i < newArray.length; i++) {
-            if (newArray[i] != 0) {
-                System.out.print(" " + newArray[i]);
-            }
-        }
-        System.out.println("");
-    }
+        Player dpn = new Player();
+        dpn.displayPlayerNumbers(player1);
+        dpn.displayPlayerNumbers(player2);
 
-    public void checkAttempts(Player player) {
-        if (counter == 9) {
-            System.out.println("У " + player.getName() + " кончились попытки");
-        }
-    }
-
-    public void negativeNumberAssignment(Player player) {
-        for (int i = 0; i < player.getNumbers().length; i++) {
-            if (player.getNumbers()[i] != 0) {
-                int last = i + 1;
-                Arrays.fill(player.getNumbers(), 0, last, 0);
-            }
-        }
+        negativeNumberAssignment(player1);
+        negativeNumberAssignment(player2);
     }
 
     public void inputNumber(Player player) {
         System.out.print(player.getName() + ", введите число: ");
-        player.setNumbers(counter, scan.nextInt());
+        player.setNumbers(attempt, scan.nextInt());
     }
 
     public void suggestPlayer(Player player) {
-        if (player.getNumbers()[counter] > randomNumber) {
-            System.out.println(player.getName() + ", введенное вами число " + player.getNumbers()[counter] + " больше того, что загадал компьютер");
-        } else if (player.getNumbers()[counter] < randomNumber) {
-            System.out.println(player.getName() + ", введенное вами число " + player.getNumbers()[counter] + " меньше того, что загадал компьютер");
+        if (player.getNumbers()[attempt] > randomNumber) {
+            System.out.println(player.getName() + ", введенное вами число " + player.getNumbers()[attempt] + " больше того, что загадал компьютер");
+        } else if (player.getNumbers()[attempt] < randomNumber) {
+            System.out.println(player.getName() + ", введенное вами число " + player.getNumbers()[attempt] + " меньше того, что загадал компьютер");
         } else {
-            int attempt = counter + 1;
-            System.out.println("Игрок " + player.getName() + " угадал число " + player.getNumbers()[counter] + " c " + attempt + " попытки");
+            System.out.println("Игрок " + player.getName() + " угадал число " + player.getNumbers()[attempt] + " c " + (attempt + 1) + " попытки");
         }
+    }
+
+    public void checkAttempts(Player player) {
+        if (attempt == 9) {
+            System.out.println("У " + player.getName() + " кончились попытки");
+        }
+    }
+
+//    public void displayPlayerNumbers(Player player) {
+//        int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
+//        System.out.print(player.getName());
+//        for (int i = 0; i < newArray.length; i++) {
+//            if (newArray[i] != 0) {
+//                System.out.print(" " + newArray[i]);
+//            }
+//        }
+//        System.out.println("");
+//    }
+
+    public void negativeNumberAssignment(Player player) {
+        Arrays.fill(player.getNumbers(), 0, (attempt + 1), 0);
     }
 }
