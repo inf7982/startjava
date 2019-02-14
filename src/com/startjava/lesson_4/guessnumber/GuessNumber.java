@@ -42,9 +42,8 @@ public class GuessNumber {
         }
         while (randomNumber != player1.getNumbers()[attempt] || randomNumber != player2.getNumbers()[attempt]);
 
-        Player dpn = new Player();
-        dpn.displayPlayerNumbers(player1);
-        dpn.displayPlayerNumbers(player2);
+        arrayAnswers(player1);
+        arrayAnswers(player2);
 
         negativeNumberAssignment(player1);
         negativeNumberAssignment(player2);
@@ -75,16 +74,13 @@ public class GuessNumber {
         }
     }
 
-//    public void displayPlayerNumbers(Player player) {
-//        int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
-//        System.out.print(player.getName());
-//        for (int i = 0; i < newArray.length; i++) {
-//            if (newArray[i] != 0) {
-//                System.out.print(" " + newArray[i]);
-//            }
-//        }
-//        System.out.println("");
-//    }
+    public void arrayAnswers(Player player) {
+        if (player.getNumbers()[attempt] == randomNumber) {
+            player.displayPlayerNumbers(player, attempt + 1);
+        } else {
+            player.displayPlayerNumbers(player, attempt);
+        }
+    }
 
     public void negativeNumberAssignment(Player player) {
         Arrays.fill(player.getNumbers(), 0, (attempt + 1), -1);

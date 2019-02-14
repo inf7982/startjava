@@ -10,10 +10,6 @@ public class Player {
         this.name = name;
     }
 
-    public Player() {
-
-    }
-
     public String getName() {
         return name;
     }
@@ -26,13 +22,11 @@ public class Player {
         this.numbers[i] = value;
     }
 
-    public void displayPlayerNumbers(Player player) {
-        int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
+    public void displayPlayerNumbers(Player player, int attempt) {
+        int[] newArray = Arrays.copyOf(player.getNumbers(), attempt);
         System.out.print(player.getName());
         for (int i = 0; i < newArray.length; i++) {
-            if (newArray[i] != -1) {
-                System.out.print(" " + newArray[i]);
-            }
+            System.out.print(" " + newArray[i]);
         }
         System.out.println("");
     }
