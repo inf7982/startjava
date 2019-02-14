@@ -16,6 +16,9 @@ public class GuessNumber {
     }
 
     public void playGame() {
+        negativeNumberInitialization(player1);
+        negativeNumberInitialization(player2);
+
         do {
             inputNumber(player1);
             suggestPlayer(player1);
@@ -45,6 +48,10 @@ public class GuessNumber {
 
         negativeNumberAssignment(player1);
         negativeNumberAssignment(player2);
+    }
+
+    public void negativeNumberInitialization(Player player) {
+        Arrays.fill(player.getNumbers(), -1);
     }
 
     public void inputNumber(Player player) {
@@ -80,6 +87,6 @@ public class GuessNumber {
 //    }
 
     public void negativeNumberAssignment(Player player) {
-        Arrays.fill(player.getNumbers(), 0, (attempt + 1), 0);
+        Arrays.fill(player.getNumbers(), 0, (attempt + 1), -1);
     }
 }

@@ -30,7 +30,7 @@ public class Player {
         int[] newArray = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
         System.out.print(player.getName());
         for (int i = 0; i < newArray.length; i++) {
-            if (newArray[i] != 0) {
+            if (newArray[i] != -1) {
                 System.out.print(" " + newArray[i]);
             }
         }
