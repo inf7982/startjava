@@ -16,23 +16,19 @@ public class GuessNumber {
     }
 
     public void playGame() {
-        negativeNumberInitialization(player1);
-        negativeNumberInitialization(player2);
+        initializeArray(player1, 1);
+        initializeArray(player2, 1);
 
         do {
-            inputNumber(player1);
-            suggestPlayer(player1);
-            if (player1.getNumbers()[attempt] == randomNumber) {
+            combineFunctions(player1);
+            if (player1.getNumbers(attempt) == randomNumber) {
                 break;
             }
-            checkAttempts(player1);
 
-            inputNumber(player2);
-            suggestPlayer(player2);
-            if (player2.getNumbers()[attempt] == randomNumber) {
+            combineFunctions(player2);
+            if (player2.getNumbers(attempt) == randomNumber) {
                 break;
             }
-            checkAttempts(player2);
 
             if (attempt == 9) {
                 break;
@@ -40,17 +36,27 @@ public class GuessNumber {
 
             attempt++;
         }
-        while (randomNumber != player1.getNumbers()[attempt] || randomNumber != player2.getNumbers()[attempt]);
+        while (randomNumber != player1.getNumbers(attempt) || randomNumber != player2.getNumbers(attempt));
 
-        arrayAnswers(player1);
-        arrayAnswers(player2);
+        newArray(player1);
+        newArray(player2);
 
-        negativeNumberAssignment(player1);
-        negativeNumberAssignment(player2);
+        initializeArray(player1, 0);
+        initializeArray(player2, 0);
     }
 
-    public void negativeNumberInitialization(Player player) {
-        Arrays.fill(player.getNumbers(), -1);
+    public void initializeArray(Player player, int full) {
+        if (full == 1) {
+            Arrays.fill(player.getNumbers(), -1);
+        } else {
+            Arrays.fill(player.getNumbers(), 0, (attempt + 1), -1);
+        }
+    }
+
+    public void combineFunctions(Player player) {
+        inputNumber(player);
+        guessNumber(player);
+        checkAttempts(player);
     }
 
     public void inputNumber(Player player) {
@@ -58,13 +64,14 @@ public class GuessNumber {
         player.setNumbers(attempt, scan.nextInt());
     }
 
-    public void suggestPlayer(Player player) {
-        if (player.getNumbers()[attempt] > randomNumber) {
-            System.out.println(player.getName() + ", введенное вами число " + player.getNumbers()[attempt] + " больше того, что загадал компьютер");
-        } else if (player.getNumbers()[attempt] < randomNumber) {
-            System.out.println(player.getName() + ", введенное вами число " + player.getNumbers()[attempt] + " меньше того, что загадал компьютер");
+    public void guessNumber(Player player) {
+        int playerNumber = player.getNumbers(attempt);
+        if (playerNumber > randomNumber) {
+            System.out.println(player.getName() + ", введенное вами число " + playerNumber + " больше того, что загадал компьютер");
+        } else if (playerNumber < randomNumber) {
+            System.out.println(player.getName() + ", введенное вами число " + playerNumber + " меньше того, что загадал компьютер");
         } else {
-            System.out.println("Игрок " + player.getName() + " угадал число " + player.getNumbers()[attempt] + " c " + (attempt + 1) + " попытки");
+            System.out.println("Игрок " + player.getName() + " угадал число " + playerNumber + " c " + (attempt + 1) + " попытки");
         }
     }
 
@@ -74,15 +81,19 @@ public class GuessNumber {
         }
     }
 
-    public void arrayAnswers(Player player) {
-        if (player.getNumbers()[attempt] == randomNumber) {
-            player.displayPlayerNumbers(player, attempt + 1);
-        } else {
-            player.displayPlayerNumbers(player, attempt);
-        }
-    }
+    public void newArray(Player player) {
+        System.out.print(player.getName());
 
-    public void negativeNumberAssignment(Player player) {
-        Arrays.fill(player.getNumbers(), 0, (attempt + 1), -1);
+        if (player.getNumbers(attempt) == randomNumber) {
+            for (int i = 0; i < player.getNewArray(attempt + 1).length; i++) {
+                System.out.print(" " + player.getNewArray(attempt + 1)[i]);
+            }
+        } else {
+            for (int i = 0; i < player.getNewArray(attempt).length; i++) {
+                System.out.print(" " + player.getNewArray(attempt)[i]);
+            }
+        }
+
+        System.out.println("");
     }
 }

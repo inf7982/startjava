@@ -6,6 +6,7 @@ public class Player {
     private String name;
     private int[] numbers = new int[10];
 
+
     public Player(String name) {
         this.name = name;
     }
@@ -22,12 +23,11 @@ public class Player {
         this.numbers[i] = value;
     }
 
-    public void displayPlayerNumbers(Player player, int attempt) {
-        int[] newArray = Arrays.copyOf(player.getNumbers(), attempt);
-        System.out.print(player.getName());
-        for (int i = 0; i < newArray.length; i++) {
-            System.out.print(" " + newArray[i]);
-        }
-        System.out.println("");
+    public int getNumbers(int attempt) {
+        return numbers[attempt];
+    }
+
+    public int[] getNewArray(int attempt) {
+        return Arrays.copyOf(numbers, attempt);
     }
 }
