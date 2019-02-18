@@ -13,7 +13,7 @@ public class GuessNumber {
     public GuessNumber(Player player1, Player player2, int maxNumber) {
         this.player1 = player1;
         this.player2 = player2;
-        this.randomNumber = (int) (Math.random() * maxNumber);
+        randomNumber = (int) (Math.random() * maxNumber);
     }
 
     public void startGame() {
@@ -21,13 +21,11 @@ public class GuessNumber {
         initializeArray(player2, 1);
 
         do {
-            playGame(player1);
-            if (checkWin(player1)) {
+            if (playGame(player1)) {
                 break;
             }
 
-            playGame(player2);
-            if (checkWin(player2)) {
+            if (playGame(player2)) {
                 break;
             }
 
@@ -46,13 +44,6 @@ public class GuessNumber {
         initializeArray(player2, 0);
     }
 
-    private boolean checkWin(Player player) {
-        if (player.getAnswer(attempt) == randomNumber) {
-            return true;
-        }
-        return false;
-    }
-
     private void initializeArray(Player player, int full) {
         if (full == 1) {
             Arrays.fill(player.getNumbers(), -1);
@@ -61,10 +52,11 @@ public class GuessNumber {
         }
     }
 
-    private void playGame(Player player) {
+    private boolean playGame(Player player) {
         inputNumber(player);
         guessNumber(player);
         checkAttempts(player);
+        return player.getAnswer(attempt) == randomNumber;
     }
 
     private void inputNumber(Player player) {
