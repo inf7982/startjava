@@ -27,7 +27,7 @@ public class Player {
         return numbers[attempt];
     }
 
-    public int[] getAnswers(int attempt) {
+    public int[] getCopyOfAnswers(int attempt) {
         return Arrays.copyOf(numbers, attempt);
     }
 }

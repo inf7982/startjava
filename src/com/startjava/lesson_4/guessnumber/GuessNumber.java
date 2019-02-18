@@ -86,12 +86,12 @@ public class GuessNumber {
         System.out.print(player.getName());
 
         if (player.getAnswer(attempt) == randomNumber) {
-            for (int i = 0; i < player.getAnswers(attempt + 1).length; i++) {
-                System.out.print(" " + player.getAnswers(attempt + 1)[i]);
+            for (int i = 0; i < player.getCopyOfAnswers(attempt + 1).length; i++) {
+                System.out.print(" " + player.getCopyOfAnswers(attempt + 1)[i]);
             }
         } else {
-            for (int i = 0; i < player.getAnswers(attempt).length; i++) {
-                System.out.print(" " + player.getAnswers(attempt)[i]);
+            for (int i = 0; i < player.getCopyOfAnswers(attempt).length; i++) {
+                System.out.print(" " + player.getCopyOfAnswers(attempt)[i]);
             }
         }
 
