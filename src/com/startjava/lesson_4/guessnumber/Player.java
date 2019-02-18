@@ -23,11 +23,11 @@ public class Player {
         this.numbers[i] = value;
     }
 
-    public int getNumbers(int attempt) {
+    public int getAnswer(int attempt) {
         return numbers[attempt];
     }
 
-    public int[] getNewArray(int attempt) {
+    public int[] getAnswers(int attempt) {
         return Arrays.copyOf(numbers, attempt);
     }
 }
