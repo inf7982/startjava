@@ -20,30 +20,39 @@ public class GuessNumber {
         initializeArray(player1, 1);
         initializeArray(player2, 1);
 
-        do {
-            playGame(player1);
-            if (player1.getAnswer(attempt) == randomNumber) {
-                break;
-            }
+        labels:{
+            do {
+                playGame(player1);
+                if (checkWin(player1)) {
+                    break;
+                }
 
-            playGame(player2);
-            if (player2.getAnswer(attempt) == randomNumber) {
-                break;
-            }
+                playGame(player2);
+                if (checkWin(player2)) {
+                    break;
+                }
 
-            if (attempt == 9) {
-                break;
-            }
+                if (attempt == 9) {
+                    break;
+                }
 
-            attempt++;
+                attempt++;
+            }
+            while (randomNumber != player1.getAnswer(attempt) || randomNumber != player2.getAnswer(attempt));
         }
-        while (randomNumber != player1.getAnswer(attempt) || randomNumber != player2.getAnswer(attempt));
 
         getAnswers(player1);
         getAnswers(player2);
 
         initializeArray(player1, 0);
         initializeArray(player2, 0);
+    }
+
+    private boolean checkWin(Player player){
+        if (player.getAnswer(attempt) == randomNumber) {
+            return true;
+        }
+        return false;
     }
 
     private void initializeArray(Player player, int full) {
