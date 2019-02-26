@@ -3,7 +3,7 @@ INSERT INTO robots (
 	,mark
 	,height
 	,weight
-	,STATUS
+	,status
 	,origin
 	,launch
 	,kaijuKill

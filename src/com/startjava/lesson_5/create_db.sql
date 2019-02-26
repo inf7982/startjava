@@ -6,7 +6,7 @@ CREATE TABLE robots (
 	,mark CHAR(6)
 	,height FLOAT8
 	,weight FLOAT8
-	,STATUS TEXT
+	,status TEXT
 	,origin TEXT
 	,launch DATE
 	,kaijuKill INT

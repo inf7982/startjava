@@ -5,7 +5,7 @@ FROM robots;
 -- отобразите только не уничтоженных роботов
 SELECT *
 FROM robots
-WHERE STATUS != 'Destroyed';
+WHERE status != 'Destroyed';
 
 -- отобразите роботов нескольких серий, например Mark-1 и Mark-6
 SELECT *
@@ -48,9 +48,9 @@ FROM robots;
 -- увеличьте на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены
 UPDATE robots
 SET kaijukill = kaijukill + 1
-WHERE STATUS != 'Destroyed';
+WHERE status != 'Destroyed';
 
 -- удалите уничтоженных роботов
 DELETE
 FROM robots
-WHERE STATUS = 'Destroyed';
+WHERE status = 'Destroyed';
