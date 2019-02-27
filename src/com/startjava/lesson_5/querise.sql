@@ -15,7 +15,6 @@ SELECT * FROM robots WHERE launch = (SELECT MIN(launch)	FROM robots);
 
 -- отобразите роботов, которые уничтожили больше/меньше всех kaiju
 SELECT * FROM robots WHERE kaijukill = (SELECT MAX(kaijukill) FROM robots);
-
 SELECT * FROM robots WHERE kaijukill = (SELECT MIN(kaijukill) FROM robots);
 
 -- отобразите средний вес роботов
