@@ -27,6 +27,7 @@ WHERE launch = (SELECT MIN(launch) FROM robots);
 SELECT *
 FROM robots
 WHERE kaijukill = (SELECT MAX(kaijukill) FROM robots);
+
 SELECT *
 FROM robots
 WHERE kaijukill = (SELECT MIN(kaijukill) FROM robots);
