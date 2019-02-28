@@ -1,5 +1,4 @@
 CREATE DATABASE jaegers;
-
 CREATE TABLE robots
 (
     id        SERIAL PRIMARY KEY NOT NULL,
