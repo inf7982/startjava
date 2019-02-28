@@ -1,6 +1,7 @@
 CREATE DATABASE jaegers;
 
-CREATE TABLE robots (
+CREATE TABLE robots
+(
     id        SERIAL PRIMARY KEY,
     modelName TEXT,
     mark      CHAR(6),
